@@ -4,39 +4,30 @@ import PropTypes from 'prop-types';
 import { Header, ListItem } from 'react-native-elements';
 import { width, height, colors} from '../../utilities/const.util';
 import MyCustomLeft from '../../container/customIcon.container';
-import { defaultCategories,addCategory } from '../../actions/addData';
+import { defaultCategories } from '../../actions/addData';
 import { getCategories } from '../../actions/getData';
 import { connect } from 'react-redux';
 
-
-class CategoriesComponent extends Component {
-  componentDidMount() {
-    this.props.defaultCategories();
-  }
-
-  render() {
-    const {
-      allCategories
-    } = this.props;
-    return (
-      <View style={localStyle.container}>
-      <Header
-        leftComponent={<MyCustomLeft showItem={'categories'}/>}
-        centerComponent={{ text: 'ALL Categories', style: { color: '#fff' } }}
-      />
-  {
-    allCategories.map((item, i) => (
+const CategoriesComponent = ({allCategories}) => {
+  return (
+    <View style={localStyle.container}>
+    <Header
+      leftComponent={<MyCustomLeft showItem={'categories'}/>}
+      centerComponent={{ text: 'ALL Categories', style: { color: '#fff' } }}
+    />
+    {
+      allCategories.map((item, i) => (
       <ListItem
-        key={i}
-        title={item.title}
-        leftIcon={{name:item.icon}}
+      key={i}
+      title={item.title}
+      leftIcon={{name:item.icon}}
       />
-    ))
-  }
-      </View>
-    )
-  }
+      ))
+      }
+    </View>
+  )
 }
+
 const localStyle = {
   container: {
     height: height['100'],
@@ -53,6 +44,10 @@ const localStyle = {
 const mapStateToProps = ({category}) => ({
   allCategories:category.allCategories
 });
+
+CategoriesComponent.propTypes = {
+  allCategories: PropTypes.array,
+}
 
 export default connect(mapStateToProps , {
   defaultCategories,

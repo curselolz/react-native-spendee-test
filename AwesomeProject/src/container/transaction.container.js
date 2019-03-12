@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
-import { Overlay, Text, Input, ButtonGroup, Button} from 'react-native-elements';
+import { Text, Input, ButtonGroup, Button} from 'react-native-elements';
 import { hideModal } from '../actions/triggerModal';
 import { TextInputMask } from 'react-native-masked-text';
 import { addData , addCategory} from '../actions/addData';
@@ -31,8 +31,10 @@ import { getCategories } from '../actions/getData';
         id:Math.floor(Math.random() * 1000),
         price: this.moneyMask.getRawValue(),
         date: this.dateMask.getRawValue(),
+        name:categoryValue,
         title: this.state.description,
         category: categoryValue,
+        categoryIndex:this.state.selectedIndex,
         icon:'apps'
       };
       return data;
@@ -43,7 +45,6 @@ import { getCategories } from '../actions/getData';
     }
     render() {
       const buttons = this.props.allCategories.map(el => el.title);
-      const { modal, hideModal } = this.props;
       const { moneyInput, dateInput, selectedIndex} = this.state;
       return (
         <View>

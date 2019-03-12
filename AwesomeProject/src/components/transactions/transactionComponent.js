@@ -8,18 +8,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import ModalCustom from '../../container/modal.container';
 import {getData} from '../../actions/getData';
 import { removeData } from '../../actions/removeData';
-import {defaultTransaction} from '../../actions/addData';
+import {defaultTransaction, defaultCategories} from '../../actions/addData';
 import { connect } from 'react-redux';
 
 class TransactionComponent extends Component {
-  static propTypes = {
-
-  }
   componentDidMount = () => {
-    this.props.defaultTransaction()
+    this.props.defaultTransaction();
+    this.props.defaultCategories();
   }
-
-
   render() {
     const { transaction } = this.props;
     return (
@@ -85,5 +81,6 @@ const mapStateToProps = ({transaction}) => ({
 export default connect(mapStateToProps, {
   getData,
   defaultTransaction,
+  defaultCategories,
   removeData
 })(TransactionComponent);

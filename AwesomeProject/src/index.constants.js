@@ -14,6 +14,7 @@ export const SET_DEFAULT_CATEGORY = 'SET_DEFAULT_CATEGORY';
 export const SET_DEFAULT_TRANSACTION = 'SET_DEFAULT_TRANSACTION';
 export const GET_UNIQUE_ID = 'GET_UNIQUE_ID';
 export const UPDATE_DATA = 'UPDATE_DATA';
+export const SORT_DATA = 'SORT_DATA';
 // get new data
 export const GET_DATA = 'GET_DATA';
 export const GET_ALL_CATEGORIES = 'GET_ALL_CATEGORIES';

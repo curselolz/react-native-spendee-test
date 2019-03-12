@@ -16,4 +16,5 @@ export default store = DEBUGGER_ENABLE
         :createStore(Reducer,
             applyMiddleware(
                 thunk,
-                ))
+                ));
+console.log(store.getState());

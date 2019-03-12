@@ -1,8 +1,6 @@
 import {
   ADD_ITEM,
   ADD_CATEGORY,
-  SHOW_BTN_SPINNER,
-  HIDE_BTN_SPINNER,
   SET_DEFAULT_CATEGORY,
   SET_DEFAULT_TRANSACTION,
 } from '../index.constants';
@@ -43,7 +41,6 @@ export const defaultTransaction = () => (dispatch) => {
       icon:'apps'
     }];
   AsyncStorage.setItem('transaction', JSON.stringify(transactionData)).then((value)=>{
-    console.log('success set value');
     dispatch({type: SET_DEFAULT_TRANSACTION})
   }).catch((err) => {
     console.log(err);
@@ -70,7 +67,6 @@ export const defaultCategories = () => (dispatch) => {
   ]
   try {
     AsyncStorage.setItem('categories', JSON.stringify(category)).then((value)=>{
-      console.log('success set value');
       dispatch({type: SET_DEFAULT_CATEGORY, payload:category})
     }).catch((err) => {
       console.log(err);

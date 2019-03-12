@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
 import { connect } from 'react-redux';
 import { Overlay} from 'react-native-elements';
 import { hideModal } from '../actions/triggerModal';
