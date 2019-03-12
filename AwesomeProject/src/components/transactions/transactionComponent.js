@@ -24,11 +24,6 @@ class TransactionComponent extends Component {
         leftComponent={<MyCustomLeft showItem={'transaction'}/>}
         centerComponent={{ text: 'ALL Categories', style: { color: '#fff' } }}
       />
-      <TouchableWithoutFeedback
-        onPress={() => this.props.getData()}
-      >
-        <Text>Press</Text>
-      </TouchableWithoutFeedback>
       <ModalCustom typeModal={'transaction'}/>
   {
     transaction.map((item, i) => (

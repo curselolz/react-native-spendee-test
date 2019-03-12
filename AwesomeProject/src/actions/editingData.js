@@ -20,7 +20,7 @@ export const updateData = item => (dispatch) => {
           a[i] = item[i];
         }
       }
-      dispatch({type:UPDATE_DATA, payload:a});
+      dispatch({type:UPDATE_DATA, payload:existingData});
       AsyncStorage.setItem('transaction', JSON.stringify(existingData));
     } else {
       console.log('Data Not Found');

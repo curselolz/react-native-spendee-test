@@ -85,10 +85,6 @@ import { getCategories } from '../actions/getData';
             buttons={buttons}
             containerStyle={{height: 100}}
           />
-        <Input
-            placeholder="Enter title categories"
-            onChangeText={description => this.handleDescription(description)}
-          />
           <Button
             title="Solid Button"
             onPress={() => this.addData()}

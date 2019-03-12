@@ -5,7 +5,8 @@ import {
   ADD_ITEM,
   REMOVE_ITEM,
   EDIT_START,
-  EDIT_END
+  EDIT_END,
+  UPDATE_DATA,
 } from '../index.constants';
 
 const initialState = {
@@ -20,6 +21,8 @@ export default transaction = (state = initialState, action) => {
     case ADD_ITEM:
       return { ...state, transaction: [...state.transaction,action.payload] };
     case REMOVE_ITEM:
+      return { ...state, transaction: action.payload };
+    case UPDATE_DATA:
       return { ...state, transaction: action.payload };
     case EDIT_START:
       return { ...state, editData: action.payload };
